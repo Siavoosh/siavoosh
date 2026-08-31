@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siavoosh Ahmadpourkhani - Resume</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #617089;
+      --line: #dce5f2;
+      --blue: #1463ff;
+      --blue-dark: #0c3f9f;
+      --cyan: #02a7c7;
+      --green: #16a66a;
+      --chip: #eef5ff;
+      --shadow: 0 20px 60px rgba(23, 32, 51, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    body {
+      padding: 32px;
+    }
+
+    .resume {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: var(--paper);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(220, 229, 242, 0.85);
+    }
+
+    .hero {
+      position: relative;
+      padding: 44px 46px 36px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(2, 167, 199, .7), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(22, 166, 106, .42), transparent 28%),
+        linear-gradient(135deg, #0b1f52 0%, #123f91 48%, #1463ff 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -120px;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      border: 42px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 132px 1.45fr .95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .photo-wrap {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,255,255,.45));
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .22);
+      border: 1px solid rgba(255,255,255,.65);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,.9);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 42px;
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+      font-weight: 850;
+    }
+
+    .title {
+      margin: 0 0 20px;
+      color: rgba(255,255,255,.9);
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    .summary {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      font-size: 15px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0;
+      color: rgba(255,255,255,.94);
+      word-break: break-word;
+    }
+
+    .contact-item .icon {
+      width: 22px;
+      min-width: 22px;
+      height: 22px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      font-size: 12px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+    }
+
+    aside {
+      background: #f8fbff;
+      border-right: 1px solid var(--line);
+      padding: 34px 28px;
+    }
+
+    main {
+      padding: 34px 40px 40px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    section:last-child { margin-bottom: 0; }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--blue-dark);
+      font-size: 16px;
+      line-height: 1.2;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    h2::before {
+      content: "";
+      width: 9px;
+      height: 24px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, var(--blue), var(--cyan));
+    }
+
+    .skill-group {
+      margin-bottom: 20px;
+    }
+
+    .skill-group h3,
+    .item h3 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      background: var(--chip);
+      color: #25436e;
+      border: 1px solid #d9e9ff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .metric {
+      border-radius: 16px;
+      padding: 14px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--blue);
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 6px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .item {
+      position: relative;
+      padding-left: 34px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+    }
+
+    .item:last-child { margin-bottom: 0; }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid var(--blue);
+      box-shadow: 0 0 0 4px #eef5ff;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    li { margin: 5px 0; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .project-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border: 1px solid var(--line);
+      break-inside: avoid;
+    }
+
+    .project-card h3 {
+      margin: 0 0 6px;
+      color: var(--blue-dark);
+      font-size: 15px;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #35445d;
+      font-size: 13px;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #0b6a49;
+      background: #eafaf3;
+      border: 1px solid #caefde;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .education-card {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-card:last-child { border-bottom: 0; }
+
+    .education-card h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+    }
+
+    .small-muted {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .print-note {
+      margin: 18px auto 0;
+      max-width: 1120px;
+      color: #607089;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      html, body {
+        background: #fff;
+        padding: 0;
+        font-size: 11.2px;
+        line-height: 1.38;
+      }
+
+      .resume {
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+      }
+
+      .hero {
+        padding: 22px 26px 20px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .hero-content {
+        grid-template-columns: 88px 1.35fr .9fr;
+        gap: 20px;
+      }
+
+      .photo-wrap {
+        width: 88px;
+        height: 88px;
+        padding: 3px;
+      }
+
+      .profile-photo { border-width: 2px; }
+
+      h1 { font-size: 29px; }
+      .title { font-size: 13px; margin-bottom: 10px; }
+      .summary { font-size: 11.4px; }
+      .contact-card { padding: 10px 12px; border-radius: 14px; }
+      .contact-item { margin: 4px 0; gap: 7px; }
+      .contact-item .icon { width: 17px; min-width: 17px; height: 17px; font-size: 9px; }
+
+      .content { grid-template-columns: 255px 1fr; }
+      aside { padding: 20px 18px; }
+      main { padding: 20px 24px; }
+      section { margin-bottom: 17px; }
+      h2 { font-size: 11.5px; margin-bottom: 9px; }
+      h2::before { height: 17px; width: 6px; }
+      .metric-grid { gap: 7px; margin-bottom: 12px; }
+      .metric { padding: 8px 6px; border-radius: 11px; }
+      .metric strong { font-size: 15px; }
+      .metric span { font-size: 8px; }
+      .chip { font-size: 9.3px; padding: 3px 7px; }
+      .chips { gap: 5px; }
+      .skill-group { margin-bottom: 12px; }
+      .skill-group h3, .item h3 { font-size: 11.5px; margin-bottom: 3px; }
+      .meta { font-size: 10px; margin-bottom: 4px; }
+      ul { margin-top: 4px; padding-left: 14px; }
+      li { margin: 2px 0; }
+      .item { margin-bottom: 13px; padding-left: 24px; }
+      .timeline::before { left: 7px; }
+      .item::before { left: 1px; width: 12px; height: 12px; border-width: 3px; box-shadow: 0 0 0 2px #eef5ff; }
+      .project-grid { gap: 8px; }
+      .project-card { padding: 10px; border-radius: 12px; }
+      .project-card h3 { font-size: 11.3px; margin-bottom: 3px; }
+      .project-card p { font-size: 9.8px; }
+      .pill-label { font-size: 8px; padding: 2px 6px; margin-bottom: 4px; }
+      .education-card { padding: 8px 0; }
+      .education-card h3 { font-size: 10.5px; }
+      .small-muted { font-size: 9.5px; }
+      .print-note { display: none; }
+    }
+
+    @media (max-width: 850px) {
+      body { padding: 16px; }
+      .hero-content, .content, .project-grid { grid-template-columns: 1fr; }
+      .photo-wrap { width: 150px; height: 150px; }
+      aside { border-right: 0; border-bottom: 1px solid var(--line); }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <article class="resume">
+    <header class="hero">
+      <div class="hero-content">
+        <div class="photo-wrap">
+          <img class="profile-photo" src="telegram-cloud-photo-size-4-172693626041773106-c.jpg" alt="Siavoosh Ahmadpourkhani" />
+        </div>
+        <div>
+          <h1>Siavoosh Ahmadpourkhani</h1>
+          <p class="title">Android & Laravel Developer | Backend Engineer | AI-Enabled Software Developer</p>
+          <p class="summary">
+            Software Developer with 8+ years of experience building Android applications, Laravel/PHP backend systems,
+            RESTful APIs, database-driven platforms, and production web applications. Strong background in Java/Kotlin,
+            Laravel architecture, MySQL, authentication systems, Firebase, SQLite, and clean maintainable software design.
+            Currently focused on Android applications, Laravel platforms, and practical AI-assisted development workflows.
+          </p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-item"><span class="icon">@</span><a href="mailto:siavash.ahmadpoor@gmail.com">siavash.ahmadpoor@gmail.com</a></div>
+          <div class="contact-item"><span class="icon">⌂</span>Tehran, Iran</div>
+          <div class="contact-item"><span class="icon">TG</span><a href="https://t.me/siavoosh">@siavoosh</a></div>
+          <div class="contact-item"><span class="icon">in</span><a href="https://www.linkedin.com/in/siavoosh">linkedin.com/in/siavoosh</a></div>
+          <div class="contact-item"><span class="icon">GH</span><a href="https://github.com/Siavoosh">github.com/Siavoosh</a></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <aside>
+        <section>
+          <h2>Profile</h2>
+          <div class="metric-grid">
+            <div class="metric"><strong>8+</strong><span>Years Exp.</span></div>
+            <div class="metric"><strong>6</strong><span>Public Repos</span></div>
+            <div class="metric"><strong>CTO</strong><span>Leadership</span></div>
+            <div class="metric"><strong>AI</strong><span>Workflow</span></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Android</h2>
+          <div class="chips">
+            <span class="chip">Java</span><span class="chip">Kotlin</span><span class="chip">Android Studio</span>
+            <span class="chip">REST APIs</span><span class="chip">Firebase</span><span class="chip">SQLite</span>
+            <span class="chip">UI Implementation</span><span class="chip">Debugging</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Laravel / Backend</h2>
+          <div class="chips">
+            <span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">MVC</span>
+            <span class="chip">RESTful APIs</span><span class="chip">MySQL</span><span class="chip">Eloquent ORM</span>
+            <span class="chip">Middleware</span><span class="chip">Auth</span><span class="chip">Queues</span>
+            <span class="chip">Database Design</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>AI & Automation</h2>
+          <div class="chips">
+            <span class="chip">AI Coding Tools</span><span class="chip">Prompting</span><span class="chip">Debugging</span>
+            <span class="chip">Automation</span><span class="chip">Research</span><span class="chip">Productivity</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Other Tech</h2>
+          <div class="chips">
+            <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Linux</span><span class="chip">macOS</span>
+            <span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+            <span class="chip">Python</span><span class="chip">Rust Basics</span><span class="chip">MQL5</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          <div class="education-card">
+            <h3>Master’s Degree, Computer Engineering</h3>
+            <div class="small-muted">Computer Networks</div>
+            <div class="small-muted">Islamic Azad University, Science and Research Branch, Tehran</div>
+            <div class="small-muted">2023 – Present</div>
+          </div>
+          <div class="education-card">
+            <h3>Bachelor’s Degree, Computer Engineering</h3>
+            <div class="small-muted">Software Engineering</div>
+            <div class="small-muted">Mahallat State University</div>
+            <div class="small-muted">2017 – 2022</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <div class="chips">
+            <span class="chip">Persian — Native</span>
+            <span class="chip">English — Professional</span>
+            <span class="chip">Turkish — Working</span>
+          </div>
+        </section>
+      </aside>
+
+      <main>
+        <section>
+          <h2>Professional Experience</h2>
+          <div class="timeline">
+            <div class="item">
+              <h3>Chief Technology Officer (CTO)</h3>
+              <div class="meta">Peyma Pishro Irsa | May 2022 – Present</div>
+              <ul>
+                <li>Lead and coordinate software development and technical teams across multiple projects.</li>
+                <li>Define technical architecture, coding standards, and development processes.</li>
+                <li>Develop and maintain backend systems, web applications, APIs, and internal infrastructure.</li>
+                <li>Improve authentication, security practices, maintainability, and system reliability.</li>
+                <li>Support technical decision-making and product strategy across the software lifecycle.</li>
+                <li>Contribute to Laravel/PHP backend development and Android-related project planning.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <h3>Co-Founder & CTO</h3>
+              <div class="meta">Battle Game Startup | July 2021 – Present</div>
+              <ul>
+                <li>Co-founded a technology startup and contributed to product and technical strategy.</li>
+                <li>Led software development decisions and long-term architecture planning.</li>
+                <li>Designed scalable and maintainable solutions for evolving product requirements.</li>
+                <li>Coordinated technical implementation across backend, application, and infrastructure needs.</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <h3>Software Developer</h3>
+              <div class="meta">Roshan Konandegan Rah Shab | April 2019 – April 2021</div>
+              <ul>
+                <li>Developed and maintained web-based software applications and internal systems.</li>
+                <li>Built PHP-based backend functionality, database features, APIs, and web modules.</li>
+                <li>Translated business and customer requirements into practical technical solutions.</li>
+                <li>Participated in debugging, testing, maintenance, and continuous product improvement.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Selected Project Experience</h2>
+          <div class="project-grid">
+            <div class="project-card">
+              <span class="pill-label">Android</span>
+              <h3>Android Applications</h3>
+              <p>Built and maintained Android applications using Java and Kotlin, integrating REST APIs, Firebase services, local SQLite storage, UI implementation, debugging, testing, and feature maintenance.</p>
+            </div>
+            <div class="project-card">
+              <span class="pill-label">Laravel</span>
+              <h3>Laravel & PHP Web Platforms</h3>
+              <p>Developed Laravel/PHP web platforms, backend systems, APIs, authentication flows, database structures, admin features, integration layers, and queue-based processes.</p>
+            </div>
+            <div class="project-card">
+              <span class="pill-label">Finance</span>
+              <h3>Financial Market Analysis Platforms</h3>
+              <p>Contributed to Sherif.ir and Sahamjo.com with backend development, database-driven features, web functionality, maintenance, and continuous product improvements.</p>
+            </div>
+            <div class="project-card">
+              <span class="pill-label">Social</span>
+              <h3>Social Networking Platforms</h3>
+              <p>Developed social networking web and application projects covering backend development, database design, API development, authentication, web applications, and mobile support.</p>
+            </div>
+            <div class="project-card">
+              <span class="pill-label">AI</span>
+              <h3>AI-Assisted Development</h3>
+              <p>Uses AI tools for research, code generation, debugging, refactoring, technical planning, workflow automation, and exploring intelligent features for software products.</p>
+            </div>
+            <div class="project-card">
+              <span class="pill-label">Trading</span>
+              <h3>Algorithmic Trading Tools</h3>
+              <p>Developed MQL5 Expert Advisors, custom indicators, strategy automation, divergence detection, multi-timeframe logic, risk management, backtesting, and optimization.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certifications</h2>
+          <div class="chips">
+            <span class="chip">LinkedIn Skill Assessment — PHP, 2019</span>
+            <span class="chip">LinkedIn Skill Assessment — Java, 2020</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </article>
+</body>
+</html>
